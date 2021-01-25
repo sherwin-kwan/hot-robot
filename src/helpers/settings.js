@@ -20,5 +20,6 @@ export const initialState = {
   targetList: [0, 24, 1, 23, 2, 22, 3, 21, 4, 20, 5, 19, 6, 18, 7, 17],
   target: 0,
   time: 60,
-  score: 0
+  score: 0,
+  gameOn: true
 };

@@ -1,11 +1,14 @@
 import { forwardFunc } from "./settings";
 
 export const reducer = (state, action) => {
+  if (!state.gameOn) {
+    return action.type === "startGame" ? { ...state, gameOn: true } : state;
+  }
   switch (action.type) {
     case "incrementScore":
       return { ...state, score: state.score + 1 };
     case "decrementTime":
-      return (state.time === 0) ? state : { ...state, time: state.time - 1 };
+      return state.time === 0 ? state : { ...state, time: state.time - 1 };
     case "forward":
       return { ...state, robot: forwardFunc(state.robot, state.direction) };
     case "right":
@@ -19,5 +22,7 @@ export const reducer = (state, action) => {
         ...state,
         target: state.targetList[state.score % state.targetList.length],
       };
+    case "endGame":
+      return { ...state, gameOn: false };
   }
 };

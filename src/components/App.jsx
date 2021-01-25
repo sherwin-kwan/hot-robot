@@ -11,7 +11,7 @@ function App() {
 
   // Start the timer
   useEffect(() => {
-    timer = setInterval(() => {
+    setInterval(() => {
       dispatch({type: 'decrementTime'});
     }, 1000)
   }, []);
@@ -27,8 +27,8 @@ function App() {
   // Handle end of game
   useEffect(() => {
     if (state.robot === -1 || state.timer === 0) {
+      dispatch({type: 'endGame'});
       console.log('GAME OVER');
-      clearInterval(timer);
     };
   });
 
