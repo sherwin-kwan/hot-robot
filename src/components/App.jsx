@@ -62,7 +62,8 @@ function App() {
         <div className="score">
           <Scoreboard score={state.score} time={state.time} />
         </div>
-        {state.gameOverScreen ? <GameOver message={state.message} /> : <div className="board">{squares(boardWidth, boardHeight)}</div>}
+        {state.gameOverScreen ? <GameOver message={state.message} dispatch={dispatch} initialState={initialState} /> 
+        : <div className="board">{squares(boardWidth, boardHeight)}</div>}
         <div className="buttons">
           <input
             type="image"

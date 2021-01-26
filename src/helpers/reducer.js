@@ -2,7 +2,7 @@ import { forwardFunc } from "./settings";
 
 export const reducer = (state, action) => {
   if (!state.gameOn) {
-    return action.type === "startGame" ? { ...state, gameOn: true } : state;
+    return action.type === "startGame" ? action.initialState : state;
   }
   switch (action.type) {
     case "incrementScore":
@@ -24,7 +24,5 @@ export const reducer = (state, action) => {
       };
     case "endGame":
       return { ...state, gameOn: false, gameOverScreen: true, message: action.message };
-    case "playAgain":
-      return { ...state, gameOn: true, gameOverScreen: false };
   }
 };
