@@ -21,5 +21,6 @@ export const initialState = {
   target: 0,
   time: 60,
   score: 0,
-  gameOn: true
+  gameOn: true,
+  gameOverScreen: false
 };

@@ -23,6 +23,8 @@ export const reducer = (state, action) => {
         target: state.targetList[state.score % state.targetList.length],
       };
     case "endGame":
-      return { ...state, gameOn: false };
+      return { ...state, gameOn: false, gameOverScreen: true, message: action.message };
+    case "playAgain":
+      return { ...state, gameOn: true, gameOverScreen: false };
   }
 };

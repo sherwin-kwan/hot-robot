@@ -4,6 +4,7 @@ import { reducer } from "../helpers/reducer";
 import { boardWidth, boardHeight, initialState } from "../helpers/settings";
 import Square from "./Square";
 import Scoreboard from './Scoreboard';
+import GameOver from './GameOver';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -26,11 +27,12 @@ function App() {
 
   // Handle end of game
   useEffect(() => {
-    if (state.robot === -1 || state.timer === 0) {
-      dispatch({ type: "endGame" });
-      console.log("GAME OVER");
+    if (state.robot === -1) {
+      dispatch({ type: "endGame" , message: "Sorry, your robot went out of bounds!" });
+    } else if (state.time === 0) {
+      dispatch({ type: "endGame", message: "Time's up, thanks for playing!"});
     }
-  });
+  }, [state.robot, state.time]);
 
   const squares = (width, height) => {
     const arr = [];
@@ -60,7 +62,7 @@ function App() {
         <div className="score">
           <Scoreboard score={state.score} time={state.time} />
         </div>
-        <div className="board">{squares(boardWidth, boardHeight)}</div>
+        {state.gameOverScreen ? <GameOver message={state.message} /> : <div className="board">{squares(boardWidth, boardHeight)}</div>}
         <div className="buttons">
           <input
             type="image"
