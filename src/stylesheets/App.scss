@@ -4,6 +4,7 @@ html {
   font-size: max(2vh, 10px);
 }
 
+
 header {
   background-color: #808;
   height: 10vh;
@@ -38,7 +39,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 1rem auto;
-    width: 25rem;
+    padding: 1rem;
+    background-color: white;
   }
 
   .square {
@@ -54,7 +56,6 @@ main {
 
   img.robot {
     width: 3rem;
-    z-index: -1;
   }
 
   img.star {
@@ -65,5 +66,10 @@ main {
     border: 2px solid black;
     height: 4rem;
     margin: 1rem;
+    background-color: blue;
+
+    &.forward {
+      background-color: #0f0;
+    }
   }
 }

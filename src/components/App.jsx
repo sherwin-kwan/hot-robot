@@ -1,9 +1,9 @@
-import logo from "../logo.svg";
 import "../stylesheets/App.scss";
 import { useEffect, useReducer } from "react";
 import { reducer } from "../helpers/reducer";
 import { boardWidth, boardHeight, initialState } from "../helpers/settings";
 import Square from "./Square";
+import Scoreboard from './Scoreboard';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -57,19 +57,38 @@ function App() {
         </ul>
       </header>
       <main>
+        <div className="score">
+          <Scoreboard score={state.score} time={state.time} />
+        </div>
         <div className="board">{squares(boardWidth, boardHeight)}</div>
         <div className="buttons">
-          <input type="image" src="/anticlockwise.png" onClick={() => dispatch({ type: "left" })} title="Turn Left" />
-          <input type="image" src="/forward.png" onClick={() => dispatch({ type: "forward" })} title="Forward" />
-          <input type="image" src="/clockwise.png" onClick={() => dispatch({ type: "right" })} title="Turn Right" />
+          <input
+            type="image"
+            src="/anticlockwise.png"
+            onClick={() => dispatch({ type: "left" })}
+            title="Turn Left"
+          />
+          <input
+            type="image"
+            className="forward"
+            src="/forward.png"
+            onClick={() => dispatch({ type: "forward" })}
+            title="Forward"
+          />
+          <input
+            type="image"
+            src="/clockwise.png"
+            onClick={() => dispatch({ type: "right" })}
+            title="Turn Right"
+          />
         </div>
-        <div className="states">
+        {/* <div className="states">
           <p>Robot Position: {state.robot}</p>
           <p>Target: {state.target}</p>
           <p>Score: {state.score}</p>
           <p>Direction: {state.direction}</p>
           <p>Time: {state.time}</p>
-        </div>
+        </div> */}
       </main>
     </>
   );
