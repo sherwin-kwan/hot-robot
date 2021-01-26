@@ -22,5 +22,6 @@ export const initialState = {
   time: 60,
   score: 0,
   gameOn: true,
-  gameOverScreen: false
+  gameOverScreen: false,
+  leaderboardShow: false
 };

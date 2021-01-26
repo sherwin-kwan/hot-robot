@@ -1,14 +1,13 @@
 import "../stylesheets/App.scss";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { reducer } from "../helpers/reducer";
-import { boardWidth, boardHeight, initialState } from "../helpers/settings";
-import Square from "./Square";
-import Scoreboard from './Scoreboard';
-import GameOver from './GameOver';
+import { initialState } from "../helpers/settings";
+import Leaderboard from "./Leaderboard";
+import MainScreen from "./MainScreen";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  let timer;
+  const [leaders, setLeaders] = useState([]);
 
   // Start the timer
   useEffect(() => {
@@ -34,64 +33,18 @@ function App() {
     }
   }, [state.robot, state.time]);
 
-  const squares = (width, height) => {
-    const arr = [];
-    for (let i = 0; i < width * height; i++) {
-      arr.push(
-        <Square
-          num={i}
-          robot={state.robot}
-          target={state.target}
-          direction={state.direction}
-        />
-      );
-    }
-    return arr;
-  };
 
   return (
     <>
       <header>
         <ul>
           <li className="title">HOT ROBOT</li>
-          <li>Game</li>
-          <li>Scores</li>
+          <li onClick={() => dispatch({type: "showGame"})}>Game</li>
+          <li onClick={() => dispatch({type: "showLeaders"})}>Scores</li>
         </ul>
       </header>
       <main>
-        <div className="score">
-          <Scoreboard score={state.score} time={state.time} />
-        </div>
-        {state.gameOverScreen ? <GameOver message={state.message} dispatch={dispatch} initialState={initialState} /> 
-        : <div className="board">{squares(boardWidth, boardHeight)}</div>}
-        <div className="buttons">
-          <input
-            type="image"
-            src="/anticlockwise.png"
-            onClick={() => dispatch({ type: "left" })}
-            title="Turn Left"
-          />
-          <input
-            type="image"
-            className="forward"
-            src="/forward.png"
-            onClick={() => dispatch({ type: "forward" })}
-            title="Forward"
-          />
-          <input
-            type="image"
-            src="/clockwise.png"
-            onClick={() => dispatch({ type: "right" })}
-            title="Turn Right"
-          />
-        </div>
-        {/* <div className="states">
-          <p>Robot Position: {state.robot}</p>
-          <p>Target: {state.target}</p>
-          <p>Score: {state.score}</p>
-          <p>Direction: {state.direction}</p>
-          <p>Time: {state.time}</p>
-        </div> */}
+        {state.leaderboardShow ? <Leaderboard leaders={leaders} /> : <MainScreen state={state} dispatch={dispatch} />}
       </main>
     </>
   );

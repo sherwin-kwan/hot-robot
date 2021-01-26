@@ -102,3 +102,17 @@ main {
     }
   }
 }
+
+// Leaderboard
+
+table.leaderboard {
+  margin: 1rem;
+  font-size: 1.2rem;
+  border-collapse: collapse;
+  background-color: #ffa;
+  
+  td, th {
+    border: 1px solid black;
+    padding: 1rem;
+  }
+}
