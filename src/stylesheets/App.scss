@@ -1,4 +1,3 @@
-
 .board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -16,3 +15,12 @@
   justify-content: center;
   align-items: center;
 };
+
+img.robot {
+  width: 3rem;
+  z-index: -1;
+};
+
+img.star {
+  width: 3rem;
+}

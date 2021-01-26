@@ -1,5 +1,5 @@
 import logo from "../logo.svg";
-import "../stylesheets/App.css";
+import "../stylesheets/App.scss";
 import { useEffect, useReducer } from "react";
 import { reducer } from "../helpers/reducer";
 import { boardWidth, boardHeight, initialState } from "../helpers/settings";
@@ -35,7 +35,7 @@ function App() {
   const squares = (width, height) => {
     const arr = [];
     for (let i = 0; i < width * height; i++) {
-      arr.push(<Square num={i} />);
+      arr.push(<Square num={i} robot={state.robot} target={state.target} direction={state.direction} />);
     };
     return arr;
   };
