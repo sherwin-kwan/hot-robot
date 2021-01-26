@@ -4,12 +4,12 @@ const Square = (props) => {
 
   const image = () => {
     if (props.robot === props.num) {
-      return (<img className="robot" style={{transform: `rotate(${props.direction * 90}deg)`}} 
+      return (<img className="robot" style={{transform: `rotate(${(props.direction + 3) % 4 * 90}deg)`}} 
     src="/pacman-sprite.png" />);
     } else if (props.target === props.num) {
       return (<img className="star" src="/star.png" />)
     } else {
-      return (<span>{String(props.num)}</span>);
+      return (<img className="dot" src="/dots.png" />);
     }
   };
 

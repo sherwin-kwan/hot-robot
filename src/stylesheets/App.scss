@@ -66,13 +66,14 @@ main {
     align-items: center;
   }
 
-  img.robot {
+  img.robot, img.star {
     width: 3rem;
   }
 
-  img.star {
-    width: 3rem;
+  img.dot {
+    width: 1rem;
   }
+
 
   input[type="image"] {
     border: 2px solid black;
