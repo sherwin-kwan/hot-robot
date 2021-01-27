@@ -11,9 +11,11 @@ function App() {
 
   // Start the timer
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       dispatch({ type: "decrementTime" });
     }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   // Handle when robot reaches a target
@@ -44,7 +46,7 @@ function App() {
         </ul>
       </header>
       <main>
-        {state.leaderboardShow ? <Leaderboard leaders={leaders} dispatch={dispatch} /> 
+        {state.leaderboardShow ? <Leaderboard leaders={leaders} dispatch={dispatch} initialState={initialState} /> 
         : <MainScreen state={state} dispatch={dispatch} setLeaders={setLeaders} />}
       </main>
     </>

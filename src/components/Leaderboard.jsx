@@ -36,7 +36,7 @@ const Leaderboard = (props) => {
       </table>
       <button onClick={() => {
         props.dispatch({type: "showGame"});
-        props.dispatch({type: "startGame"});
+        props.dispatch({type: "startGame", initialState: props.initialState});
       }}>Play Again</button>
     </>
   );
@@ -46,5 +46,6 @@ export default Leaderboard;
 
 Leaderboard.propTypes = {
   dispatch: PropTypes.func,
-  leaders: PropTypes.array
+  leaders: PropTypes.array,
+  initialState: PropTypes.object
 };
