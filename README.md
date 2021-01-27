@@ -2,6 +2,10 @@
 
 A game where you score points by moving a Pacman to target squares around a 5x5 board. Built with React.
 
+[Play the live game](https://hot-robot.netlify.app)
+
+NOTE: This is a serverless React app, so the leaderboard is saved in state and all scores will be lost as soon as you refresh.
+
 Game:
 
 ![](/game-progress.png)
@@ -19,8 +23,6 @@ Leaderboard:
 3) The game ends if the Pacman is moved out of bounds (you're on the top edge, facing upwards, and move forward one more space) or if the 60-second timer runs out.
 
 4) After the game, you will have an opportunity to add your score to the leaderboard.
-
-NOTE: This is a serverless React app, so the leaderboard is saved in state and all scores will be lost as soon as you refresh.
 
 # Running it locally
 
