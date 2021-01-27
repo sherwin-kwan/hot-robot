@@ -1,8 +1,6 @@
 import { forwardFunc } from "./settings";
 
 export const reducer = (state, action) => {
-  console.log('Attempting to dispatch: ', action);
-  console.log('State is: ', state);
   // Actions always available
   switch (action.type) {
     case "showLeaders":
@@ -27,7 +25,7 @@ export const reducer = (state, action) => {
       case "left":
         return { ...state, direction: (state.direction + 3) % 4 };
       case "setTargets":
-        return { ...state, targetList: action.val };
+        return { ...state, targetList: action.val, target: action.val[0] };
       case "nextTarget":
         return {
           ...state,

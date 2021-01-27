@@ -7,7 +7,6 @@ const AddLeaderForm = (props) => {
 
   const saveScore = (e) => {
     e.preventDefault();
-    console.log('The score is: ', props.score);
     props.setLeaders(prev => prev.concat([{name, score: props.score}]));
     props.dispatch({type: "showLeaders"});
   };

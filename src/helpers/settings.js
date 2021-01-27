@@ -1,3 +1,5 @@
+import shuffle from "./shuffle";
+
 export const boardWidth = 5;
 export const boardHeight = 5;
 
@@ -17,7 +19,6 @@ export const forwardFunc = (current, direction) => {
 export const initialState = {
   robot: 12, // Middle of a 5x5 board
   direction: 0, // Facing north
-  targetList: [0, 24, 1, 23, 2, 22, 3, 21, 4, 20, 5, 19, 6, 18, 7, 17],
   target: 0,
   time: 60,
   score: 0,
