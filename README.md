@@ -2,6 +2,14 @@
 
 A game where you score points by moving a Pacman to target squares around a 5x5 board. Built with React.
 
+Game:
+
+![](/game-progress.png)
+
+Leaderboard:
+
+![](/leaderboard.png)
+
 # How to Play
 
 1) There are controls to turn left, turn right, and move forward one space in the direction you're facing.
