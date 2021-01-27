@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const Leaderboard = (props) => {
   const scores = (leaders) => {
     if (leaders.length) {
-      return leaders.map((leader) => {
+      return leaders.sort((a, b) => a.score < b.score).map((leader) => {
         return (
           <tr>
             <td>{leader.name}</td>
