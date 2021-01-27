@@ -41,22 +41,25 @@ const MainScreen = (props) => {
           <div className="buttons">
             <input
               type="image"
+              alt="Turn Left"
+              title="Turn left"
               src="/anticlockwise.png"
               onClick={() => dispatch({ type: "left" })}
-              title="Turn Left"
             />
             <input
               type="image"
+              alt="Forward"
+              title="Move forward one space"
               className="forward"
               src="/forward.png"
               onClick={() => dispatch({ type: "forward" })}
-              title="Forward"
             />
             <input
               type="image"
+              alt="Turn Right"
+              title="Turn right"
               src="/clockwise.png"
               onClick={() => dispatch({ type: "right" })}
-              title="Turn Right"
             />
           </div>
         </>

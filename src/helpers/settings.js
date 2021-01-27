@@ -1,5 +1,3 @@
-import shuffle from "./shuffle";
-
 export const boardWidth = 5;
 export const boardHeight = 5;
 

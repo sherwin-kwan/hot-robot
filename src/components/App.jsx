@@ -26,7 +26,7 @@ function App() {
       dispatch({ type: "incrementScore" });
       dispatch({ type: "nextTarget" });
     }
-  }, [state.robot]);
+  }, [state.robot, state.target]);
 
   // Handle end of game
   useEffect(() => {
