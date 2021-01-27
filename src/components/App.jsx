@@ -44,7 +44,8 @@ function App() {
         </ul>
       </header>
       <main>
-        {state.leaderboardShow ? <Leaderboard leaders={leaders} /> : <MainScreen state={state} dispatch={dispatch} />}
+        {state.leaderboardShow ? <Leaderboard leaders={leaders} dispatch={dispatch} /> 
+        : <MainScreen state={state} dispatch={dispatch} setLeaders={setLeaders} />}
       </main>
     </>
   );

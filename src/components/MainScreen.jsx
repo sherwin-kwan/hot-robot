@@ -30,7 +30,9 @@ const MainScreen = (props) => {
       </div>
       {state.gameOverScreen ? (
         <GameOver
+          score={state.score}
           message={state.message}
+          setLeaders={props.setLeaders}
           dispatch={dispatch}
           initialState={initialState}
         />
@@ -66,5 +68,6 @@ export default MainScreen;
 
 MainScreen.propTypes = {
   state: PropTypes.object,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  setLeaders: PropTypes.func
 };
