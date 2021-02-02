@@ -20,6 +20,25 @@ function App() {
     return () => clearInterval(timer);
   }, [state.gameOverScreen, state.leaderboardShow]);
 
+  useEffect(() => {
+    window.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'A':
+        case 'a':
+          dispatch({ type: "left"});
+          break;
+        case 'D':
+        case 'd':
+          dispatch({type: "right"});
+          break;
+        case 'S':
+        case 's':
+          dispatch({type: "forward"});
+          break;
+      }
+    });
+  }, [])
+
   // Handle when robot reaches a target
   useEffect(() => {
     if (state.robot === state.target) {
